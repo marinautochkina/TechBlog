@@ -1,0 +1,18 @@
+<main class="homepage-container">
+    {{#if posts.length}}
+    {{#each posts}}
+    <div class="post-entry-box">
+        <div class="post-header">
+            <h2>{{this.title}}</h2>
+            <div class="user-post-info">
+               <h3>{{this.user.name}} ● {{format_date this.createdAt}}</h3>
+            </div>
+        </div>
+        <p>{{this.content}}</p>
+        <a href="/views/{{this.id}}" class="view-comments-button" data-id="{{this.id}}">View Comments</a>
+    </div>
+    {{/each}}
+    {{else}}
+    <p>No posts found.</p>
+    {{/if}}
+</main>

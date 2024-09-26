@@ -1,0 +1,51 @@
+<main class="dashboard-container">
+    {{#if posts.length}}
+    {{#each posts}}
+    <div class="post-entry-box">
+        <div class="post-header">
+            <h2>{{this.title}}</h2>
+            <div class="user-post-info">
+               <h3>{{this.user.name}} ● {{format_date this.createdAt}}</h3>
+            </div>
+        </div>
+
+        <p>{{this.content}}</p>
+        <div class="post-actions">
+            <a href="#" class="update-comments-button" data-id="{{this.id}}">Update</a>
+            <a href="#" class="delete-comments-button" data-id="{{this.id}}">Delete</a>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <p>No posts found.</p>
+    {{/if}}
+</main>
+
+<a href="#" class="new-post-button">+ New Post</a>
+
+<div id="new-post-form-container" class="new-post-form-container hidden">
+    <form id="new-post-form" class="new-post-form">
+        <label for="post-title">Title</label>
+        <input type="text" id="post-title" name="title" required>
+
+        <label for="post-content">Content</label>
+        <textarea id="post-content" name="content" rows="4" required></textarea>
+
+        <button type="submit" class="submit-post-button">Submit Post</button>
+    </form>
+</div>
+
+<div id="update-post-form-container" class="update-post-form-container hidden">
+    <form id="update-post-form" class="update-post-form">
+        <label for="update-post-title">Title</label>
+        <input type="text" id="update-post-title" name="title" required>
+
+        <label for="update-post-content">Content</label>
+        <textarea id="update-post-content" name="content" rows="4" required></textarea>
+
+        <button type="submit" class="update-post-button">Update Post</button>
+        <button type="button" class="cancel-update-button">Cancel</button>
+    </form>
+</div>
+
+<script src="/js/post.js"></script>

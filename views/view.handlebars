@@ -1,0 +1,32 @@
+<main class="post-container">
+    <div class="post-entry-box">
+        <div class="post-header">
+            <h2>{{this.title}}</h2>
+            <div class="user-post-info">
+               <h3>{{this.user.name}} ● {{format_date this.createdAt}}</h3>
+            </div>
+        </div>
+        <p>{{this.content}}</p>
+    </div>
+
+    <section class="comments-section">
+        <h2>Comments</h2>
+
+        {{#if comments.length}}
+        <ul class="comments-list">
+            {{#each comments}}
+            <li>
+                <p>{{this.content}}</p>
+            </li>
+            <button id='comment'>Comment?</button>
+           <div id='leave-a-comment' className="leave-a-comment hidden">
+                          <label htmlFor="comment-here">comment</label>
+                          <textarea name="comment-here"></textarea>
+                        </div>
+            {{/each}}
+        </ul>
+        {{else}}
+        <p>No comments found for this post.</p>
+        {{/if}}
+    </section>
+</main>
